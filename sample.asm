@@ -7,13 +7,14 @@
 
 ;
 ; rsp = Stack Pointer, points to the TOP of the current stack frame.
+; rdi = Destination Index Register (~ Strcopy destination?)
 ;
 
 _main:
-  sub     rsp, 8           ; subtract 8 from rsp
-  lea     rdi, [message]
-  call    _puts
-  add     rsp, 8
+  sub     rsp, 8           ; rsp -= 8
+  lea     rdi, [message]   ; put [message] into rdi (rdi = [message])
+  call    _puts            ; |> print
+  add     rsp, 8           ; rsp += 8
   ret
 
   section .data
