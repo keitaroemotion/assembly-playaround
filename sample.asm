@@ -5,8 +5,12 @@
   extern  _puts
   section .text
 
+;
+; rsp = Stack Pointer, points to the TOP of the current stack frame.
+;
+
 _main:
-  sub     rsp, 8
+  sub     rsp, 8           ; subtract 8 from rsp
   lea     rdi, [message]
   call    _puts
   add     rsp, 8
