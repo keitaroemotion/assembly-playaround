@@ -1,0 +1,5 @@
+set -e
+
+nasm -f macho64 sample.asm
+gcc -arch x86_64 -o sample sample.o
+./sample
